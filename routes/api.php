@@ -32,5 +32,3 @@ Route::resource('/atendimento', 'ControladorAtendimento');
 Route::resource('/ocorrencia', 'ControladorOcorrencia');
 
 Route::get('/atendimento/search', 'ControladorAtendimento@search');
-
-Route::post('/login', 'ControladorUsuario@login');

@@ -34,3 +34,7 @@ Route::get('/adm/prioridades', 'ControladorPrioridade@indexView');
 Route::get('/adm/tipo-atd', 'ControladorTipoAtd@indexView');
 
 Route::get('/adm/subtipo', 'ControladorSubCausa@indexView');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
