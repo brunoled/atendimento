@@ -43,6 +43,11 @@ class Atendimento extends Model
         return $this->belongsTo('App\TipoAtd');
     }
 
+    function atendente()
+    {
+        return $this->belongsTo('App\Atendente');
+    }
+
     function ocorrencia()
     {
         return $this->hasMany('App\Ocorrencia');

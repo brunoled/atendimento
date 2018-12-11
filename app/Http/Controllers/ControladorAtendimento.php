@@ -28,7 +28,7 @@ class ControladorAtendimento extends Controller
      */
     public function index()
     {
-        $atendimento = Atendimento::with('cliente', 'causa', 'subcausa', 'prioridade', 'status', 'tipo_atd')->get();
+        $atendimento = Atendimento::with('cliente', 'causa', 'subcausa', 'prioridade', 'status', 'tipo_atd','atendente')->get();
         return $atendimento->toJson();
     }
 
@@ -80,7 +80,9 @@ class ControladorAtendimento extends Controller
         $tipoatd = TipoAtd::find($tipo_atd_id);
         $atd->tipo_atd()->associate($tipoatd);
 
-        $atd->atendente = $request->input('atendente');
+        $atendente_id = $request->input('atendente');
+        $atendente = Atendente::find($atendente_id);
+        $atd->atendente()->associate($atendente);
 
         $status_id = $request->input('status_id');
         $status = Status::find($status_id);
@@ -115,7 +117,7 @@ class ControladorAtendimento extends Controller
      */
     public function show($id)
     {
-        $atendimentos = Atendimento::find($id)->with('cliente', 'causa', 'subcausa', 'prioridade', 'status', 'tipo_atd')->where('id', $id)->get();
+        $atendimentos = Atendimento::find($id)->with('cliente', 'causa', 'subcausa', 'prioridade', 'status', 'tipo_atd', 'atendente')->where('id', $id)->get();
 
         if(isset($atendimentos)){
             return json_encode($atendimentos);
@@ -169,7 +171,7 @@ class ControladorAtendimento extends Controller
         if($request->ajax())
         {
             $saida="";
-            $atendimentos = Atendimento::find($request->search)->with('cliente', 'causa', 'subcausa', 'prioridade', 'status', 'tipo_atd')->where('id', $request->search)->get();
+            $atendimentos = Atendimento::find($request->search)->with('cliente', 'causa', 'subcausa', 'prioridade', 'status', 'tipo_atd','atendente')->where('id', $request->search)->get();
 
             if($atendimentos)
             {

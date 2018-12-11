@@ -225,7 +225,7 @@
                 "<td>" + p.id + "</td>" +
                 "<td style='font-weight: bold'>" + p.cliente.nome + "</td>" +
                 "<td>" + p.tipo_atd.tipo_atd + "</td>" +
-                "<td>" + p.atendente + "</td>" +
+                "<td>" + p.atendente.atendente + "</td>" +
                 // "<td>" + p.status.status + "</td>" +
                 "<td id='desc'>" + p.descricao + "</td>" +
                 "<td>" + p.prioridade.prioridade + "</td>" +

@@ -17,4 +17,8 @@ class Ocorrencia extends Model
     {
         return $this->belongsTo('App\SubCausa');
     }
+    public function atendente()
+    {
+        return $this->belongsTo('App\Atendente');
+    }
 }
