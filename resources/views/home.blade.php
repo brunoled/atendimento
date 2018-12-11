@@ -14,7 +14,11 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    Você logou com sucesso! Bem vindo {{ Auth::user()->usuario }}
+
+
+                    <a href="/" class="btn btn-primary">Ir para atendimentos</a>
+
                 </div>
             </div>
         </div>

@@ -15,25 +15,25 @@
 
 Route::get('/adm', function () {
     return view('index');
-});
+})->middleware('auth');
 /* Rotas Atendimento */
 
-Route::get('/', 'ControladorAtendimento@indexView');
+Route::get('/', 'ControladorAtendimento@indexView')->middleware('auth');
 
-Route::get('/ocorrencia/{id}', 'ControladorOcorrencia@indexView');
+Route::get('/ocorrencia/{id}', 'ControladorOcorrencia@indexView')->middleware('auth');
 
-Route::get('/search', 'ControladorAtendimento@search');
+Route::get('/search', 'ControladorAtendimento@search')->middleware('auth');
 
 
 /* Rotas Painel Administrativo */
 
-Route::get('/adm/causas', 'ControladorCausa@indexView');
+Route::get('/adm/causas', 'ControladorCausa@indexView')->middleware('auth');
 
-Route::get('/adm/prioridades', 'ControladorPrioridade@indexView');
+Route::get('/adm/prioridades', 'ControladorPrioridade@indexView')->middleware('auth');
 
-Route::get('/adm/tipo-atd', 'ControladorTipoAtd@indexView');
+Route::get('/adm/tipo-atd', 'ControladorTipoAtd@indexView')->middleware('auth');
 
-Route::get('/adm/subtipo', 'ControladorSubCausa@indexView');
+Route::get('/adm/subtipo', 'ControladorSubCausa@indexView')->middleware('auth');
 
 Auth::routes();
 

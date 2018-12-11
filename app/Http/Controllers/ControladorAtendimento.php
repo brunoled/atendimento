@@ -14,8 +14,6 @@ use Validator;
 
 class ControladorAtendimento extends Controller
 {
-
-
     public function indexView()
     {
         $atendimento = Atendimento::all();
